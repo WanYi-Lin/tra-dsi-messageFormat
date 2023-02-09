@@ -1,0 +1,8 @@
+io\github\shanerwu\message\format\core\annotation\FormatAlign.class
+io\github\shanerwu\message\format\core\annotation\MessageFormat.class
+io\github\shanerwu\message\format\core\annotation\MessageDetail.class
+org\apache\commons\lang3\StringUtils.class
+io\github\shanerwu\message\format\core\annotation\MessageType.class
+io\github\shanerwu\message\format\core\MessageFormatSupport.class
+io\github\shanerwu\message\format\core\MessageFormatHelper$ValueHandler.class
+io\github\shanerwu\message\format\core\MessageFormatHelper.class
