@@ -6,9 +6,11 @@ import java.lang.reflect.Type;
 import io.github.shanerwu.message.format.core.MessageFormatHelper;
 import io.github.shanerwu.message.format.core.MessageFormatSupport;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@NoArgsConstructor
 public abstract class AbstractMessageSupport<S extends MessageFormatSupport, T extends MessageFormatSupport> {
 
     @Getter
