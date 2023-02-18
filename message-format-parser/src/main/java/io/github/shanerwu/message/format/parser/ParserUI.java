@@ -18,7 +18,7 @@ public class ParserUI extends Application {
         Scene scene = new Scene(root);
 
         stage.getIcons().add(new Image("/fxml/image/icon.png"));
-        stage.setTitle("Message Parser");
+        stage.setTitle("✧✧✧DSI電文轉換小工具✧✧✧");
         stage.setScene(scene);
         stage.show();
     }
