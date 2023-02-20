@@ -40,8 +40,8 @@ public class POS003ResponseBody extends MessageFormatSupport {
     private int total;
 
     /** 付款方式 */
-    @MessageFormat(length = 4, description = "付款方式")
-    private String payWay;
+    @MessageFormat(length = 2, description = "付款方式")
+    private int payWayCode;
 
     /** 退票資料明細 */
     @MessageFormat(length = 30, reference = "cancelCount", description = "退票資料明細")
