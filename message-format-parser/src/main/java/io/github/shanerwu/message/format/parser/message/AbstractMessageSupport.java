@@ -1,16 +1,14 @@
 package io.github.shanerwu.message.format.parser.message;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 import io.github.shanerwu.message.format.core.MessageFormatHelper;
 import io.github.shanerwu.message.format.core.MessageFormatSupport;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 @Slf4j
-@NoArgsConstructor
 public abstract class AbstractMessageSupport<S extends MessageFormatSupport, T extends MessageFormatSupport> {
 
     @Getter
@@ -24,7 +22,14 @@ public abstract class AbstractMessageSupport<S extends MessageFormatSupport, T e
         Class<T> bodyClass = this.getBodyClass();
         int headerLength = this.getHeaderLength(headerClass);
         this.header = MessageFormatHelper.parse(message.substring(0, headerLength), headerClass);
-        this.body = MessageFormatHelper.parse(message.substring(headerLength), bodyClass);
+        this.body = this.parseBody(message.substring(headerLength), bodyClass);
+    }
+
+    private T parseBody(String bodyMessage, Class<T> bodyClass) {
+        if (StringUtils.isBlank(bodyMessage)) {
+            bodyClass = (Class<T>) EmptyBody.class;
+        }
+        return MessageFormatHelper.parse(bodyMessage, bodyClass);
     }
 
     @SuppressWarnings("unchecked")

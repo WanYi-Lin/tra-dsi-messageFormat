@@ -28,8 +28,8 @@ public final class MessageParser {
             AbstractMessageSupport messageSupport = constructor.newInstance(message);
             return parse(messageSupport);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
-            throw new Exception(e);
+            log.error(e.getMessage(), e.getCause());
+            throw new Exception(e.getCause());
         }
     }
 
